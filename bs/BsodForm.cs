@@ -26,8 +26,6 @@ namespace bs
 		{
 			InitializeComponent();
 
-			initialCursorPosition = Cursor.Position;
-
 			updateTimer.Interval = 50;
 			updateTimer.Tick += ListenForMouseMovement;
 
@@ -55,6 +53,8 @@ namespace bs
 		private async void EnableMouseMovementMonitoring()
 		{
 			await Task.Delay(listenForMouseMovementDelayMs);
+
+			initialCursorPosition = Cursor.Position;
 			updateTimer.Start();
 		}
 
